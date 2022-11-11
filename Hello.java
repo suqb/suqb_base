@@ -4,10 +4,10 @@ public class Hello{
 	public static void main(String[] args) {
 		System.out.println("Hello Git");
 		method();
-		System.out.println("7tou");
+		System.out.println("染头");
 	}
 	public static void method() {
-		System.out.println("嘿嘿嘿");
+		System.out.println("哎嘿！！！");
 	}
 
 }
