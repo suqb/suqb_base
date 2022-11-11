@@ -6,4 +6,7 @@ public class Controller {
         System.out.println("hello/////////");
         System.out.println("hello");
     }
+    public static void method() {
+        System.out.println("你好啊 客户端");
+    }
 }
