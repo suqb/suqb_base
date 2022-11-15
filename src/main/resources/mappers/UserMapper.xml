@@ -6,9 +6,55 @@
 <mapper namespace="com.xxx.springboot.dao.UserMapper">
 
     <select id="queryUserByUserName" parameterType="string" resultType="com.xxx.springboot.po.User">
-        select *
-        from user
-        where user_name = #{username}
+        select
+            *
+        from
+            user
+        where
+            user_name = #{username}
     </select>
 
+    <select id="queryById" parameterType="int" resultType="com.xxx.springboot.po.User">
+        select
+            *
+        from
+            user
+        where
+            id = #{id, jdbcType=INTEGER}
+    </select>
+
+    <insert id="save" parameterType="com.xxx.springboot.po.User">
+        insert into
+            user (user_name, user_pwd)
+        values
+            (#{userName}, #{userPwd});
+    </insert>
+
+    <update id="update" parameterType="com.xxx.springboot.po.User">
+        update
+            user
+        set
+            user_name = #{userName}, user_pwd = #{userPwd}
+        where
+            id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from
+                   user
+               where
+                   id = #{id}
+    </delete>
+
+    <select id="selectUserByPrams" parameterType="com.xxx.springboot.query.UserQuery" resultType="com.xxx.springboot.po.User">
+        select
+            *
+        from
+            user
+        <where>
+            <if test="userName != null and userName != ''">
+                and user_name like concat('%',#{userName},'%')
+            </if>
+        </where>
+    </select>
 </mapper>
